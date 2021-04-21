@@ -1,3 +1,5 @@
-"use strict";
+'use strict';
 
-const a:number = 1;
+const ab:string|number = '113213';
+
+console.log(ab);
