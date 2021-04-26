@@ -9,10 +9,9 @@ const port = 9006;
 const requestListener = async function (req: any, res: any) {
   console.log('req', req);
 
-  await miniApi.procRequestDefault(req);
-  await miniApi.procResponseDefault(res);
-
-  console.log('res', res);
+  let resp = await miniApi.procRequestDefault(req, res);
+  resp = (resp)?resp:'';
+  await miniApi.procResponseDefault(res, resp);
 };
 
 const server = new http.Server(requestListener);
