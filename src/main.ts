@@ -7,8 +7,6 @@ const host = 'localhost';
 const port = 9006;
 
 const requestListener = async function (req: any, res: any) {
-  console.log('req', req);
-
   let resp = await miniApi.procRequestDefault(req, res);
   resp = (resp)?resp:'';
   await miniApi.procResponseDefault(res, resp);
@@ -17,3 +15,4 @@ const requestListener = async function (req: any, res: any) {
 const server = new http.Server(requestListener);
 
 server.listen(port, host);
+console.log('Сервер запущен, адрес ' + host +':'+ port);
